@@ -1,2 +1,5 @@
 .env
 certs/
+.idea/
+__pycache__/
+.pyc
