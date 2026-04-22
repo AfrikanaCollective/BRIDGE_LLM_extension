@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  qwen-api:
+    build: .
+    container_name: qwen-api-service
+    ports:
+      - "${API_PORT}:${API_PORT}"
+    env_file:
+      - .env
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./certs:/app/certs:ro
+      - ./logs:/app/logs
+    networks:
+      - qwen-network
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "curl", "-k", "https://localhost:${API_PORT}/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    # GPU support (if using NVIDIA Docker)
+    # runtime: nvidia
+    # environment:
+    #   - NVIDIA_VISIBLE_DEVICES=all
+
+networks:
+  qwen-network:
+    driver: bridge
+
+volumes:
+  logs:
