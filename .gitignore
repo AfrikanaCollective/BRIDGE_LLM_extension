@@ -2,4 +2,7 @@
 certs/
 .idea/
 __pycache__/
-.pyc
+.pyctest_reports/
+logs/
+test_reports/
+*.pyc

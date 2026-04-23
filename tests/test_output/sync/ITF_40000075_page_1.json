@@ -1,0 +1,13 @@
+{
+  "model": "qwen3.5:9b",
+  "timestamp": "2026-04-22T12:19:26.245448",
+  "metrics": {
+    "total_duration": 14.64,
+    "load_duration": 0.13,
+    "prompt_eval_count": 2373,
+    "prompt_eval_duration": 0.81,
+    "eval_count": 1542,
+    "eval_duration": 13.02
+  },
+  "file": "ITF_40000075_page_1.png"
+}

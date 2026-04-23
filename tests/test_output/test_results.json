@@ -1,0 +1,75 @@
+{
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7
+  },
+  "results": [
+    {
+      "test_name": "Test 1: Sync Generation (ITF_40000071_page_1.png)",
+      "status": "PASSED",
+      "duration": 187.631977,
+      "details": {
+        "result": "{'response': '{\\n  \"Date\": \"02-01-2025\",\\n  \"Time (24-hour clock)\": \"00:40\",\\n  \"Name\": \"N/A\",\\n  \"IP No.\": \"N/A\",\\n  \"Residence\": \"N/A\",\\n  \"Tel No.\": \"N/A\",\\n  \"Age (in years)\": \"20\",\\n  \"Parity\": \"0 + 0\",\\n  \"Gravida\": \"1\",\\n  \"Gestation (in weeks)\": \"28\",\\n  \"Attended ANC?\": \"Y\",\\n  \"ANC no. of visits\": \"2\",\\n  \"ANC U/S\": \"N\",\\n  \"U/S findings\": \"N/A\",\\n  \"EDD\": \"15-04-2025\",\\n  \"LMP\": \"08-01-2024\",\\n  \"Blood group\": \"Unkn\",\\n  \"Rhesus\": \"Unkn\",\\n  \"Fever\": \"N\",\\n  \"Treated for TB\": \"Unkn\",\\"
+      },
+      "timestamp": "2026-04-22T15:19:09.568886"
+    },
+    {
+      "test_name": "Test 2: Sync Generation (ITF_40000075_page_1.png)",
+      "status": "PASSED",
+      "duration": 14.677397,
+      "details": {
+        "result": "{'response': '```json\\n{\\n  \"35\": \"35\",\\n  \"Parity\": \"3 + 0\",\\n  \"Gravida\": \"4\",\\n  \"Gestation (in weeks)\": \"34\",\\n  \"Attended ANC?\": \"Y\",\\n  \"ANC no. of visits\": \"5\",\\n  \"ANC U/S\": \"N\",\\n  \"EDD\": \"20 - 01 - 2025\",\\n  \"LMP\": \"27 - 0 - 2024\",\\n  \"Blood group\": \"O\",\\n  \"Rhesus\": \"Pos\",\\n  \"Fever\": \"N\",\\n  \"Treated for TB\": \"N\",\\n  \"VDRL\": \"Neg\",\\n  \"Diabetes\": \"N\",\\n  \"PMTCT status\": \"Neg\",\\n  \"Mother on ARVs\": \"Y\",\\n  \"APH\": \"N\",\\n  \"Antibiotics\": \"Y\",\\n  \"Multiple PG\": \"N\",\\n  \"HTN in pregnancy\""
+      },
+      "timestamp": "2026-04-22T15:19:26.248515"
+    },
+    {
+      "test_name": "Test 3: Sync Generation (ITF_72000767_page_1.png)",
+      "status": "PASSED",
+      "duration": 164.191091,
+      "details": {
+        "result": "{'response': '```json\\n{\\n  \"A: Mother\\'s details\": null,\\n  \"Name\": null,\\n  \"IP No.\": null,\\n  \"Residence\": null,\\n  \"Tel No.\": null,\\n  \"Age (in years).\": \"27\",\\n  \"Parity\": \"0 + 1\",\\n  \"Gravida\": \"2\",\\n  \"Gestation (in weeks)\": \"40\",\\n  \"Attended ANC?\": \"Y\",\\n  \"ANC no. of visits\": null,\\n  \"ANC U/S.\": \"Y\",\\n  \"If yes, trimester\": null,\\n  \"U/S findings\": null,\\n  \"EDD\": \"09-01-2025\",\\n  \"LMP\": \"03-04-2024\",\\n  \"Blood group\": \"O\",\\n  \"Unkn\": null,\\n  \"Rhesus\": \"Pos\",\\n  \"Neg\": null,\\n  \"Feve"
+      },
+      "timestamp": "2026-04-22T15:22:12.441955"
+    },
+    {
+      "test_name": "Test 4: Async Generation (ITF_40000071_page_1.png)",
+      "status": "PASSED",
+      "duration": 82.912534,
+      "details": {
+        "result": "{'response': '{\\n  \"Date\": \"23-01-2025\",\\n  \"Time\": \"00:46\",\\n  \"A: Mother\\'s details\",\\n  \"Name\": \"N/A\",\\n  \"IP No.\": \"N/A\",\\n  \"Residence\": \"N/A\",\\n  \"Tel No.\": \"N/A\",\\n  \"Age (in years)\": \"20\",\\n  \"Parity\": \"0 + 0\",\\n  \"Gravida\": \"1\",\\n  \"Gestation (in weeks)\": \"28\",\\n  \"Attended ANC?\": \"Y\",\\n  \"ANC no. of visits\": \"2\",\\n  \"ANC U/S\": \"N\",\\n  \"U/S findings\": \"N/A\",\\n  \"EDD\": \"15-04-2025\",\\n  \"LMP\": \"08-07-2024\",\\n  \"Blood group\": \"Unkn\",\\n  \"Rhesus\": \"Unkn\",\\n  \"Fever\": \"N\",\\n  \"Treated for TB"
+      },
+      "timestamp": "2026-04-22T15:23:37.356843"
+    },
+    {
+      "test_name": "Test 5: Async Generation (ITF_40000075_page_1.png)",
+      "status": "PASSED",
+      "duration": 8.349434,
+      "details": {
+        "result": "{'response': '```json\\n{\\n  \"Date\": \"16-01-2025\",\\n  \"Time\": \"10:20\",\\n  \"Name\": \"N/A\",\\n  \"IP No.\": \"N/A\",\\n  \"Residence\": \"N/A\",\\n  \"Tel No.\": \"N/A\",\\n  \"Age (in years)\": \"35\",\\n  \"Parity\": \"3 + 0\",\\n  \"Gravida\": \"4\",\\n  \"Gestation (in weeks)\": \"34\",\\n  \"Attended ANC?\": \"Y\",\\n  \"ANC no. of visits\": \"5\",\\n  \"ANC U/S\": \"Y\",\\n  \"U/S findings\": \"N/A\",\\n  \"EDD\": \"20-02-2025\",\\n  \"LMP\": \"07-01-2025\",\\n  \"Blood group\": \"A\",\\n  \"Rhesus\": \"Pos\",\\n  \"Fever\": \"N\",\\n  \"Treated for TB\": \"N\",\\n  \"VDRL\": \"Ne"
+      },
+      "timestamp": "2026-04-22T15:23:47.709069"
+    },
+    {
+      "test_name": "Test 6: Async Generation (ITF_72000767_page_1.png)",
+      "status": "PASSED",
+      "duration": 63.048663,
+      "details": {
+        "result": "{'response': '{\\n  \"Date\": \"14-01-2025\",\\n  \"Time\": \"02:00\",\\n  \"A: Mother\\'s details\",\\n  \"Name\": \"N/A\",\\n  \"IP No.\": \"N/A\",\\n  \"Residence\": \"N/A\",\\n  \"Tel No.\": \"N/A\",\\n  \"Age (in years)\": \"27\",\\n  \"Parity\": \"0 + 1\",\\n  \"Gravida\": \"2\",\\n  \"Gestation (in weeks)\": \"40\",\\n  \"Attended ANC?\": \"Y\",\\n  \"ANC no. of visits\": \"N/A\",\\n  \"ANC U/S\": \"Y\",\\n  \"If yes, trimester\": \"N/A\",\\n  \"U/S findings\": \"N/A\",\\n  \"EDD\": \"09-01-2025\",\\n  \"LMP\": \"03-04-2024\",\\n  \"Blood group\": \"O\",\\n  \"Rhesus\": \"Pos\",\\n  \"Fe"
+      },
+      "timestamp": "2026-04-22T15:24:52.760732"
+    },
+    {
+      "test_name": "Test 7: Batch Generation",
+      "status": "PASSED",
+      "duration": 288.79143,
+      "details": {
+        "successful": 3,
+        "failed": 0,
+        "details": "3 successful, 0 failed"
+      },
+      "timestamp": "2026-04-22T15:29:43.554874"
+    }
+  ],
+  "timestamp": "2026-04-22T15:29:43.555014"
+}

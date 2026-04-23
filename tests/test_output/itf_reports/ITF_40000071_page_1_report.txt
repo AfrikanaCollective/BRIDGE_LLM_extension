@@ -1,0 +1,94 @@
+ITF FORM REPORT
+================================================================================
+File: ITF_40000071_page_1.md
+Status: success
+Timestamp: 2026-04-23T16:35:51.450557
+================================================================================
+
+SUMMARY:
+=== CASE SUMMARY ===
+
+MOTHER DETAILS:
+  • Date form completed: 2025-01-23
+  • Mother's age in years: 20
+  • Number of prior pregnancies (e.g., 3+0): 0 + 0
+  • Total number of pregnancies: 1
+  • Gestational age at delivery in weeks: 28
+  • Mother attended antenatal care: Yes
+  • Number of ANC visits attended: 2
+  • Antenatal ultrasound performed: No
+  • Expected date of delivery: 2025-04-15
+  • Last menstrual period: 2024-07-08
+  • Maternal fever present: No
+  • Syphilis screening (VDRL test): Negative
+  • Mother has diabetes: No
+  • HIV status (Prevention of Mother-to-Child Transmission): Negative
+  • Mother on antiretroviral therapy: No
+  • Antepartum hemorrhage: No
+  • Mother on antibiotics: No
+  • Multiple pregnancy: Yes
+  • Number of fetuses in multiple pregnancy: 2
+  🟠 Hypertension in pregnancy: No
+  🔴 Pre-eclampsia: No
+  🔴 Eclampsia: No
+
+LABOUR & BIRTH:
+  • Rupture of membranes (timing, e.g., >18h): >18h
+  • Fetal distress during labour: No
+  • Meconium-stained amniotic fluid: No
+  • Corticosteroids given: No
+  • Mode of delivery: SVD, Forceps
+  • Placenta completely delivered: Yes
+  • Placental abnormalities: Yes
+  • Bag and mask ventilation given: Yes
+  • Chest compressions performed: No
+  • Vitamin K prophylaxis given: No
+  • Thermal care: Yes
+  • Oral Polio Vaccine: No
+  • BCG vaccine: No
+  • Hepatitis B vaccine: No
+  • CPAP support: No
+  • Supplemental oxygen: Yes
+  • Chlorhexidine cord care: Yes
+  • Mother's general status: Well
+  📋 Mother's current location: Theatre
+
+INFANT DETAILS:
+  • Baby's date of birth: 2025-01-23
+  • Baby's sex: M
+  • Birth weight in grams: 1000
+  • Temperature in °C: 36.7
+  • APGAR score at 1 minute: 4
+  • APGAR score at 5 minutes: 5
+  • APGAR score at 10 minutes: 6
+  • Location baby originated from: Theatre
+  🔴 Primary clinical indication for referral: RDS, Asphyxia, Prem
+
+--- DATA QUALITY ASSESSMENT ---
+ Data coverage: 76.81 %
+ Data completeness for required fields: 88.0 %
+
+
+--- RISK ASSESSMENT ---
+Total Risk Flags: 7
+  HIGH: 5
+  MODERATE: 2
+
+FLAGS:
+  🟠 HIGH: Multiple PG present
+  🟠 HIGH: Abnormal placenta? present
+  🟠 HIGH: BVM resuscitation present
+  🟠 HIGH: Oxygen present
+  🟠 HIGH: Birth Weight (grams) very low (<1500)
+
+
+RISK ASSESSMENT:
+
+  HIGH (5):
+    • Multiple PG present: True (Multiple PG)
+    • Abnormal placenta? present: True (Abnormal placenta?)
+    • BVM resuscitation present: True (BVM resuscitation)
+
+  MODERATE (2):
+    • Gestation (in weeks) low (<32): 28 (Gestation (in weeks))
+    • Birth Weight (grams) low (<2500): 1000 (Birth Weight (grams))

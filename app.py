@@ -10,6 +10,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
+from clients.image_generation import strip_markdown_code_blocks
 
 # Import your config
 from config import Config
@@ -238,6 +239,9 @@ async def generate_with_image(
 
                 # Extract content - /api/generate returns "response" field
                 content = result.get("response", "")
+
+                # ✅ FIX: Strip markdown code blocks
+                content = strip_markdown_code_blocks(content)
 
                 if not content:
                     logger.warning(f"Empty content from Ollama. Response: {result}")

@@ -2,10 +2,10 @@
 Programmatic clients for image generation via API
 Wraps the /generate-with-image endpoint
 """
-
+import re
+import json
 import aiohttp
 import asyncio
-import json
 import logging
 import ssl
 from pathlib import Path
@@ -14,6 +14,27 @@ from typing import Optional, Dict, Any
 
 logger = logging.getLogger(__name__)
 
+
+def strip_markdown_code_blocks(text: str) -> str:
+    """
+    Strip markdown code blocks (```json ... ```) from text.
+    Returns the raw content, optionally parsed if it's valid JSON.
+    """
+    if not isinstance(text, str):
+        return text
+
+    # Pattern to match ```[language]\n...\n```
+    pattern = r'```(?:json|python|javascript|yaml)?\n(.*?)\n```'
+    match = re.search(pattern, text, re.DOTALL)
+
+    if match:
+        # Extract content from code block
+        content = match.group(1)
+        logger.debug(f"🔍 Stripped markdown code block, content length: {len(content)}")
+        return content
+
+    # If no code block found, return as-is
+    return text
 
 async def generate_with_image_async(
         image_path: str,
@@ -114,6 +135,9 @@ async def generate_with_image_async(
 
                     result = await response.json()
                     response_text = result.get('response', '')
+
+                    # ✅ FIX: Strip markdown code blocks
+                    response_text = strip_markdown_code_blocks(response_text)
 
                     # Save to file if specified
                     if output_file:

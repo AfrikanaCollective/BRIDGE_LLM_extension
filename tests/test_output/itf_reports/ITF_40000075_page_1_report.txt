@@ -1,0 +1,97 @@
+ITF FORM REPORT
+================================================================================
+File: ITF_40000075_page_1.md
+Status: success
+Timestamp: 2026-04-23T16:35:51.551745
+================================================================================
+
+SUMMARY:
+=== CASE SUMMARY ===
+
+MOTHER DETAILS:
+  • Date form completed: 2025-01-16
+  • Time form completed: 10:20
+  • Mother's age in years: 35
+  • Number of prior pregnancies (e.g., 3+0): 3 + 0
+  • Total number of pregnancies: 4
+  • Gestational age at delivery in weeks: 34
+  • Mother attended antenatal care: Yes
+  • Number of ANC visits attended: 5
+  • Antenatal ultrasound performed: Yes
+  • Expected date of delivery: 2025-02-20
+  • Last menstrual period: 2025-01-07
+  • Mother's blood group: A
+  • Rhesus factor status: Positive
+  • Maternal fever present: No
+  • Mother on TB treatment: No
+  • Syphilis screening (VDRL test): Negative
+  • Mother has diabetes: No
+  • HIV status (Prevention of Mother-to-Child Transmission): Negative
+  • Mother on antiretroviral therapy: No
+  • Antepartum hemorrhage: No
+  • Mother on antibiotics: Yes
+  • Multiple pregnancy: No
+  🟠 Hypertension in pregnancy: No
+  🔴 Pre-eclampsia: No
+  🔴 Eclampsia: No
+  🟠 Additional maternal complications (PROM, PPROM, etc.): PPROM with PROM in preterm labour
+
+LABOUR & BIRTH:
+  • Fetal distress during labour: No
+  • Meconium-stained amniotic fluid: No
+  • Corticosteroids given: Yes
+  • Number of steroid doses: 4
+  • Mode of delivery: CS
+  • Type of caesarean section: Emergency
+  🟠 Clinical indication for emergency caesarean: 3 PSC with PROM
+  • Placenta completely delivered: Yes
+  • Placental abnormalities: No
+  • Bag and mask ventilation given: No
+  • Chest compressions performed: No
+  • Thermal care: Yes
+  • Oral Polio Vaccine: No
+  • BCG vaccine: No
+  • Hepatitis B vaccine: No
+  • CPAP support: No
+  • Supplemental oxygen: Yes
+  • Chlorhexidine cord care: No
+  📋 Mother's current location: theatre
+
+INFANT DETAILS:
+  • Baby's date of birth: 2025-01-16
+  • Baby's sex: F
+  • Birth weight in grams: 2010
+  • Current weight in grams: 2010
+  • Heart rate (beats per minute): 162
+  • Temperature in °C: 37.0
+  • Respiratory rate: 66
+  • APGAR score at 1 minute: 8
+  • APGAR score at 5 minutes: 9
+  • APGAR score at 10 minutes: 9
+  • Location baby originated from: Theatre
+  🔴 Primary clinical indication for referral: RDC
+
+--- DATA QUALITY ASSESSMENT ---
+ Data coverage: 82.61 %
+ Data completeness for required fields: 96.0 %
+
+
+--- RISK ASSESSMENT ---
+Total Risk Flags: 4
+  HIGH: 2
+  MODERATE: 2
+
+FLAGS:
+  🟠 HIGH: If CS, type = Emergency
+  🟠 HIGH: Oxygen present
+
+
+RISK ASSESSMENT:
+
+  HIGH (2):
+    • If CS, type = Emergency: Emergency (If CS, type)
+    • Oxygen present: True (Oxygen)
+
+  MODERATE (2):
+    • Antibiotics present: True (Antibiotics)
+    • Birth Weight (grams) low (<2500): 2010 (Birth Weight (grams))
