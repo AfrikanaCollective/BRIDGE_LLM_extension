@@ -4,5 +4,5 @@ certs/
 __pycache__/
 .pyctest_reports/
 logs/
-test_reports/
+itf_reports/
 *.pyc
