@@ -936,7 +936,6 @@ class ITFAgent:
         except Exception as e:
             logger.error(f"❌ Error exporting JSON report: {e}")
 
-
     def export_individual_json(self, result: Dict[str, Any], output_path: str):
         """Export result as JSON."""
         try:

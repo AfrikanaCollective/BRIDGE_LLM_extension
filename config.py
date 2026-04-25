@@ -3,6 +3,7 @@ Configuration for Qwen API Service
 """
 
 import os
+from pathlib import Path
 from typing import Optional
 
 
@@ -49,14 +50,27 @@ class Config:
         os.getenv("ALLOWED_IMAGE_FORMATS", "JPEG,PNG,GIF,WEBP").split(",")
     )
 
+    # ✅ NEW: Prompt Management Configuration
+    PROMPTS_DIR = Path(os.getenv("PROMPTS_DIR", "./prompts"))
+    PROMPT_NAMING_FORMAT = os.getenv("PROMPT_NAMING_FORMAT", "{form_type}_{page_number}.txt")
+    DEFAULT_PROMPT_FALLBACK = os.getenv("DEFAULT_PROMPT_FALLBACK", "True").lower() == "true"
+    DEFAULT_PROMPT_FILE = os.getenv("DEFAULT_PROMPT_FILE", "DEFAULT.txt")
+
     # Logging
     LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
+    LOG_LLM_TRACE: str = os.getenv("TRACE_DIR", "./logs/extract_raw")
 
     @property
     def api_url(self) -> str:
         """Dynamically build API URL based on USE_HTTPS setting"""
         protocol = "https" if self.USE_HTTPS else "http"
         return f"{protocol}://{self.API_HOST}:{self.API_PORT}"
+
+    @classmethod
+    def ensure_directories(cls):
+        """Ensure required directories exist."""
+        cls.PROMPTS_DIR.mkdir(parents=True, exist_ok=True)
+        Path(cls.LOG_LLM_TRACE).mkdir(parents=True, exist_ok=True)
 
 
 # For convenience, expose config as module-level variables
@@ -71,3 +85,4 @@ SSL_VERIFY = Config.SSL_VERIFY
 MAX_CONCURRENT_REQUESTS = Config.MAX_CONCURRENT_REQUESTS
 REQUEST_TIMEOUT = Config.REQUEST_TIMEOUT
 LOG_LEVEL = Config.LOG_LEVEL
+LOG_LLM_TRACE = Config.LOG_LLM_TRACE
