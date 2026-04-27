@@ -79,6 +79,48 @@ def test_schema_validation():
     except Exception as e:
         logger.error(f"❌ Validation failed: {e}")
 
+    # Try loading NAR page 1
+    try:
+        schema = get_form_schema('NAR', 1)
+        validate_schema(schema)
+        logger.info("\n✅ NAR Page 1 schema is valid")
+        logger.info(f"   Total fields: {len(schema)}")
+
+        # Count fields by section
+        from agents.config import SectionType
+        sections = {}
+        for field_name, field_def in schema.items():
+            section = field_def.get('section')
+            sections[section] = sections.get(section, 0) + 1
+
+        logger.info("\n   Fields by section:")
+        for section, count in sorted(sections.items(), key=lambda x: str(x[0])):
+            logger.info(f"      {section.value}: {count} fields")
+
+    except Exception as e:
+        logger.error(f"❌ Validation failed: {e}")
+
+    # Try loading NAR page 2
+    try:
+        schema = get_form_schema('NAR', 2)
+        validate_schema(schema)
+        logger.info("\n✅ NAR Page 2 schema is valid")
+        logger.info(f"   Total fields: {len(schema)}")
+
+        # Count fields by section
+        from agents.config import SectionType
+        sections = {}
+        for field_name, field_def in schema.items():
+            section = field_def.get('section')
+            sections[section] = sections.get(section, 0) + 1
+
+        logger.info("\n   Fields by section:")
+        for section, count in sorted(sections.items(), key=lambda x: str(x[0])):
+            logger.info(f"      {section.value}: {count} fields")
+
+    except Exception as e:
+        logger.error(f"❌ Validation failed: {e}")
+
     logger.info("\n" + "=" * 80)
 
 

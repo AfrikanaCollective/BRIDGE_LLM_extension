@@ -32,6 +32,7 @@ class SectionType(Enum):
     MOTHER_DETAILS = "mother_details"
     LABOUR_BIRTH = "labour_birth"
     INFANT_DETAILS = "infant_details"
+    INFANT_VITALS = "infant_vitals"
     INFANT_HISTORY = "infant_history"
     EXAMINATION = "infant_examination"
     GENERAL_EXAMINATION = "general_examination"
@@ -41,6 +42,7 @@ class SectionType(Enum):
     DIAGNOSIS = "diagnosis"
     INTERVENTIONS = "interventions"
     ACTION_PLAN = "action_plan"
+    SIGN_OFF = "sign_off"
 
 
 class ClinicalCategory(Enum):

@@ -378,7 +378,7 @@ NAR_PAGE_2_SCHEMA = {
         "type": FieldType.TIME,
         "format": "HH:MM",
         "required": False,
-        "section": SectionType.ACTION_PLAN,
+        "section": SectionType.SIGN_OFF,
         "clinical_category": ClinicalCategory.ADMINISTRATIVE,
         "is_clinical_concept": False,
         "description": "Time form completed"
@@ -389,7 +389,7 @@ NAR_PAGE_2_SCHEMA = {
         "type": FieldType.DATE,
         "format": "DD-MM-YYYY",
         "required": True,
-        "section": SectionType.MOTHER_DETAILS,
+        "section": SectionType.SIGN_OFF,
         "clinical_category": ClinicalCategory.ADMINISTRATIVE,
         "is_clinical_concept": False,
         "description": "Date form completed"
