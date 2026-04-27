@@ -9,7 +9,7 @@ from typing import Dict, List, Any, Optional
 from datetime import datetime
 
 from agents.itf_tools import ITFTools
-from agents.config import ITF_PAGE_1_SCHEMA, SectionType, ClinicalCategory, FieldType
+from agents.config import get_form_schema, SectionType, ClinicalCategory, FieldType
 
 logger = logging.getLogger(__name__)
 
@@ -17,10 +17,11 @@ logger = logging.getLogger(__name__)
 class ITFAgent:
     """Agent for processing ITF (Infant Treatment Form) documents."""
 
-    def __init__(self):
+    def __init__(self, page_number: int = 1):
         """Initialize ITF Agent."""
         self.tools = ITFTools()
-        self.schema = ITF_PAGE_1_SCHEMA
+        self.page_number = page_number
+        self.schema = get_form_schema('ITF', page_number)
         logger.info("🚀 ITF Agent initialized")
         logger.info(f"📋 Loaded ITF Schema with {len(self.schema)} field definitions")
 

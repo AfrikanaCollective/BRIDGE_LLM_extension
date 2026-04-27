@@ -6,7 +6,7 @@ from datetime import datetime
 from pathlib import Path
 
 from .config import (
-    ITF_PAGE_1_SCHEMA, BOOLEAN_MAPPINGS, ClinicalCategory,
+    get_form_schema, BOOLEAN_MAPPINGS, ClinicalCategory,
     SectionType, ITF_SECTION_VARIATIONS, CLINICAL_CONCEPT_FIELDS,
     FieldType
 )
@@ -21,7 +21,7 @@ class ITFTools(MedicalFormTools):
     def __init__(self):
         """Initialize ITF tools."""
         super().__init__("ITF", 1)
-        self.schema = ITF_PAGE_1_SCHEMA
+        self.schema = get_form_schema('ITF', 1)  # Page 1
         self.section_variations = ITF_SECTION_VARIATIONS
         self.clinical_concept_fields = CLINICAL_CONCEPT_FIELDS.get("ITF", {}).get(1, {})
 
