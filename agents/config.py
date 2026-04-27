@@ -113,8 +113,28 @@ CLINICAL_CONCEPT_FIELDS = {
         }
     },
     "NAR": {
-        1: {},
-        2: {}
+        1: {
+            SectionType.MOTHER_DETAILS: [
+                "U/S findings",
+                "Maternal history notes",
+            ],
+            SectionType.INFANT_DETAILS: [
+                "Infant presenting problems",
+                "Any other important and family / social history?",
+            ]
+        },
+        2: {
+            SectionType.FURTHER_EXAMINATION: [
+                "Further examination notes",
+                "Birth defects description",
+            ],
+            SectionType.SUMMARY: [
+                "Summary of problems",
+            ],
+            SectionType.INVESTIGATIONS: [
+                "Other investigations",
+            ]
+        }
     },
 }
 
