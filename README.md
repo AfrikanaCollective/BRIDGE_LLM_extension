@@ -50,8 +50,8 @@ Qwen API Service is a specialized medical document processing system that levera
 ### Core Capabilities
 
 ✅ **Multi-Format Support**
-- ITF (Infant Treatment Form)
-- NAR (Narrative Report) - In Development
+- ITF (Internal Transfer Form)
+- NAR (Neonatal Admission Record) - In Development
 - DSC (Discharge Summary) - In Development
 
 ✅ **Advanced Form Processing**
@@ -154,26 +154,25 @@ Qwen API Service is a specialized medical document processing system that levera
 Each form undergoes an 8-step pipeline:
 
 ```
-
-Input Image<br>
-    ↓ <br>
-[1] File Read (image_generation.py)<br>
-    ↓ (LLM via Ollama)<br>
-[2] JSON/Text Extraction (ITFAgent._extract_json_from_markdown)<br>
-    ↓<br>
-[3] Field Normalization (ITFAgent._normalize_field_names)<br>
-    ↓<br>
-[4] Type Conversion (ITFAgent._convert_field_types)<br>
-    ↓<br>
-[5] Section Categorization (ITFAgent._categorize_into_sections)<br>
-    ↓<br>
-[6] Schema Validation (ITFAgent._validate_against_schema)<br>
-    ↓<br>
-[7] Clinical Concept Extraction (ITFAgent._extract_clinical_concepts)<br>
-    ↓<br>
-[8] Risk Flag Identification (ITFAgent._identify_risk_flags)<br>
-    ↓<br>
-Output (JSON + Markdown Summary)<br>
+Input Image
+    ↓ 
+[1] File Read (image_generation.py)
+    ↓ (LLM via Ollama)
+[2] JSON/Text Extraction (ITFAgent._extract_json_from_markdown)
+    ↓
+[3] Field Normalization (ITFAgent._normalize_field_names)
+    ↓
+[4] Type Conversion (ITFAgent._convert_field_types)
+    ↓
+[5] Section Categorization (ITFAgent._categorize_into_sections)
+    ↓
+[6] Schema Validation (ITFAgent._validate_against_schema)
+    ↓
+[7] Clinical Concept Extraction (ITFAgent._extract_clinical_concepts)
+    ↓
+[8] Risk Flag Identification (ITFAgent._identify_risk_flags)
+    ↓
+Output (JSON + Markdown Summary)
 ```
 
 
