@@ -28,10 +28,19 @@ class FieldType(Enum):
 
 
 class SectionType(Enum):
-    """Section types for ITF."""
+    """Section types for ITF & NAR """
     MOTHER_DETAILS = "mother_details"
     LABOUR_BIRTH = "labour_birth"
     INFANT_DETAILS = "infant_details"
+    INFANT_HISTORY = "infant_history"
+    EXAMINATION = "infant_examination"
+    GENERAL_EXAMINATION = "general_examination"
+    FURTHER_EXAMINATION = "further_examination"
+    SUMMARY = "summary"
+    INVESTIGATIONS = "investigations"
+    DIAGNOSIS = "diagnosis"
+    INTERVENTIONS = "interventions"
+    ACTION_PLAN = "action_plan"
 
 
 class ClinicalCategory(Enum):
