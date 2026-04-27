@@ -34,6 +34,18 @@ COPY app.py config.py ./
 # Copy clients package (entire directory)
 COPY clients/ ./clients/
 
+# Copy prompts package (entire directory)
+COPY prompts/ ./prompts/
+
+# Copy agents package (entire directory)
+COPY agents/ ./agents/
+
+# Copy utils package (entire directory)
+COPY utils/ ./utils/
+
+# Copy tests package (entire directory)
+COPY tests/ ./tests/
+
 # Ensure proper permissions
 RUN chmod 755 /app/certs /app/logs
 
