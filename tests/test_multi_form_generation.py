@@ -122,7 +122,7 @@ async def test_single_nar_form(image_path: Path):
     try:
         result = await generate_with_image_async(
             image_path=str(image_path),
-            output_file=f"./tests/test_output/test_agent/nar_{image_path.stem}",
+            output_file=f"./tests/test_output/test_agent/agent/{image_path.stem}",
             as_markdown=True,
             process_with_agent=True,
             form_type="NAR"
@@ -203,7 +203,7 @@ async def test_batch_mixed_forms(images_by_type: dict):
         })
 
     # Add NAR forms
-    for img_path in images_by_type.get('NAR', [])[:1]:
+    for img_path in images_by_type.get('NAR', [])[:2]:
         batch_images.append({
             "image_path": str(img_path),
             "output_file": f"./tests/test_output/test_agent/batch/{img_path.stem}",
@@ -308,10 +308,10 @@ def print_test_summary(results: dict):
         'test_1_itf': "✅ PASS" if results.get('test_1_itf') else "❌ FAIL",
         'test_2_nar': "⚠️  SKIPPED" if results.get('test_2_nar') is None else (
             "✅ PASS" if results.get('test_2_nar') else "❌ FAIL"),
-        'test_3_dsc': "⚠️  SKIPPED" if results.get('test_3_dsc') is None else (
-            "✅ PASS" if results.get('test_3_dsc') else "❌ FAIL"),
+        'test_3_nar': "⚠️  SKIPPED" if results.get('test_3_nar') is None else (
+            "✅ PASS" if results.get('test_2_nar') else "❌ FAIL"),
         'test_4_validation': "✅ PASS",
-        #'test_4_batch': "✅ PASS" if results.get('test_4_batch') else "❌ FAIL",
+        #'test_5_batch': "✅ PASS" if results.get('test_5_batch') else "❌ FAIL",
     }
 
     for test_name, status in summary.items():
@@ -364,14 +364,19 @@ async def main():
     if nar_images:
         results['test_2_nar'] = await test_single_nar_form(nar_images[0]) is not None
     else:
-        logger.warning("\n⚠️  No NAR images found - skipping TEST 2")
+        logger.warning("\n⚠️  No NAR page 2 images found - skipping TEST 2")
         results['test_2_nar'] = None
+    if nar_images:
+        results['test_3_nar'] = await test_single_nar_form(nar_images[1]) is not None
+    else:
+        logger.warning("\n⚠️  No NAR page 1 images found - skipping TEST 3")
+        results['test_3_nar'] = None
 
-    # TEST 3: Validation
+    # TEST 4: Validation
     await test_form_type_validation()
 
-    # TEST 4: Batch processing
-    # results['test_4_batch'] = await test_batch_mixed_forms(images_by_type) is not None
+    # TEST 5: Batch processing
+    # results['test_5_batch'] = await test_batch_mixed_forms(images_by_type) is not None
 
     # Print summary
     print_test_summary(results)

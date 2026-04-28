@@ -83,14 +83,27 @@ ITF_SECTION_VARIATIONS = {
 
 NAR_SECTION_VARIATIONS = {
     # To be defined based on NAR form structure
-    "CLINICAL_FINDINGS": [
-        "Clinical Findings",
-        "Clinical findings",
+    "INFANT_DETAILS": [
+        "A: Infant Details",
+        "A: Infant details",
+        "Infant Details",
+        "Infant details",
+        "A: Baby Details",
+        "A: Neonatal Details",
     ],
-    "ASSESSMENT": [
-        "Assessment",
-        "assessment",
-    ],
+    "MOTHER_DETAILS": [
+            "B: Mother's details",
+            "Mother's details",
+            "C: Mother's problems during pregnancy/labour & relevant maternal treatment",
+            "Mother's problems during pregnancy/labour & relevant maternal treatment",
+        ],
+    "INFANT_HISTORY": [
+            "D: Infant's presenting problem & any treatment given",
+            "Infant's presenting problem & any treatment given",
+            "E: History and examination",
+            "History and examination",
+        ],
+
 }
 
 

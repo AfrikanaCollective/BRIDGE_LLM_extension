@@ -13,13 +13,14 @@ from pathlib import Path
 from config import Config
 from typing import Optional, Dict, Any, Tuple, Type
 from agents.itf_agent import ITFAgent
+from agents.nar_agent import NARAgent
 
 logger = logging.getLogger(__name__)
 
 # Form type agent mapping
 FORM_TYPE_AGENTS = {
     "ITF": ITFAgent,
-    # "NAR": NARAgent,  # Add when available
+    "NAR": NARAgent,
     # "DSC": DSCAgent,  # Add when available
 }
 
