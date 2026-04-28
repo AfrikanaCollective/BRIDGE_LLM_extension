@@ -161,7 +161,8 @@ async def test_form_type_validation():
     test_cases = [
         ("ITF", True, "Valid form type"),
         ("itf", True, "Lowercase form type"),
-        ("ITF ", True, "Form type with whitespace"),
+        ("NAR ", True, "Form type with whitespace"),
+        ("nAr ", True, "Form type with mixed case"),
         ("INVALID", False, "Invalid form type"),
         ("XYZ", False, "Unknown form type"),
     ]

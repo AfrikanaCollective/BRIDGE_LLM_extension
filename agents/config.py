@@ -167,6 +167,9 @@ ENUM_MAPPINGS = {
     "Neg": "Negative",
     "Unkn": "Unknown",
     "Unknown": "Unknown",
+    "F": "Female",
+    "M": "Male",
+    "Indeterminate": "Indeterminate",
 
     # Boolean shortcuts
     "Y": True,

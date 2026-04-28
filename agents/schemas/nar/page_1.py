@@ -2,7 +2,7 @@
 NAR Page 1 Schema - Neonatal Admission Record (Part 1)
 """
 
-from agents.config import FieldType, SectionType, ClinicalCategory
+from agents.config import FieldType, SectionType, ClinicalCategory, ENUM_MAPPINGS
 
 # ==================== NAR PAGE 1 SCHEMA ====================
 
@@ -40,6 +40,7 @@ NAR_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.ADMINISTRATIVE,
         "is_clinical_concept": False,
         "values": ["F", "M", "Indeterminate"],
+        "enum_mapping": ENUM_MAPPINGS,
         "description": "Baby's sex"
     },
 
@@ -177,7 +178,7 @@ NAR_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
         "description": "Bag and mask ventilation given",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -189,7 +190,7 @@ NAR_PAGE_1_SCHEMA = {
         "section": SectionType.INFANT_DETAILS,
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
-        "description": "Rupture of membranes (timing, e.g., >18h)",
+        "description": "Rupture of membranes (timing in hours)",
         "risk_flag_values": [">=18h"]
     },
 
@@ -201,7 +202,7 @@ NAR_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
         "description": "Multiple deliveries",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -328,7 +329,7 @@ NAR_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.OBSERVATION,
         "is_clinical_concept": False,
         "values": ["Pos", "Neg", "Unkn"],
-        "enum_mapping": {"Pos": "Positive", "Neg": "Negative", "Unkn": "Unknown"},
+        "enum_mapping": ENUM_MAPPINGS,
         "description": "Rhesus factor status"
     },
 
@@ -340,7 +341,7 @@ NAR_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
         "values": ["Pos", "Neg", "Unkn"],
-        "enum_mapping": {"Pos": "Positive", "Neg": "Negative", "Unkn": "Unknown"},
+        "enum_mapping": ENUM_MAPPINGS,
         "description": "Syphilis screening (VDRL test)",
         "risk_flag_value": "Pos"
     },
@@ -353,7 +354,7 @@ NAR_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": False,
         "values": ["Pos", "Neg", "Unkn"],
-        "enum_mapping": {"Pos": "Positive", "Neg": "Negative", "Unkn": "Unknown"},
+        "enum_mapping": ENUM_MAPPINGS,
         "description": "HIV status (Prevention of Mother-to-Child Transmission)",
         "risk_flag_value": "Pos"
     },
@@ -366,7 +367,7 @@ NAR_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": True,
         "description": "Hypertension in pregnancy",
-        "enum_mapping": {"Y": True, "N": False, "Unkn": "Unknown"},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -378,7 +379,7 @@ NAR_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": False,
         "description": "Antepartum hemorrhage",
-        "enum_mapping": {"Y": True, "N": False, "Unkn": "Unknown"},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -390,7 +391,7 @@ NAR_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
         "description": "Mother has diabetes",
-        "enum_mapping": {"Y": True, "N": False, "Unkn": "Unknown"},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -515,7 +516,7 @@ NAR_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
         "description": "Baby passed meconium/stool",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -527,7 +528,7 @@ NAR_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": False,
         "description": "Baby passed meconium/stool",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -539,7 +540,7 @@ NAR_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": False,
         "description": "Baby passed urine",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -551,7 +552,7 @@ NAR_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": False,
         "description": "Baby has difficulty feeding",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -563,7 +564,7 @@ NAR_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": False,
         "description": "Baby has convulsions",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -575,7 +576,7 @@ NAR_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": False,
         "description": "Baby has Apnoea",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -587,7 +588,7 @@ NAR_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": False,
         "description": "Baby has reduced movement",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -599,7 +600,7 @@ NAR_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": False,
         "description": "Baby has bilious vomiting",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -611,7 +612,7 @@ NAR_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": False,
         "description": "Baby has bloody stool",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 

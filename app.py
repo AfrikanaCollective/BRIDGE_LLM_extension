@@ -212,7 +212,12 @@ async def generate_with_image(
             "model": config.MODEL_NAME,
             "prompt": prompt,
             "images": [image_base64],  # Vision models expect images here
-            "stream": False
+            "stream": False,
+            "options": {
+                "temperature": 0,
+                "top_p": 1,
+                "top_k": 0
+            }
         }
 
         logger.info(f"Sending request to Ollama: {config.OLLAMA_BASE_URL}/api/generate")

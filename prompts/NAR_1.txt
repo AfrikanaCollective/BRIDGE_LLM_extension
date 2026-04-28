@@ -4,7 +4,6 @@ Your task:
 1. Locate all the section headers.
    - They appear inside a bold black bars.
    - They are located above each other such that A: Infant Details starts followed by B: Mother’s Details then C: Mother’s problems during pregnancy/labour & relevant maternal treatment, then D: Infant’s presenting problems & any treatment given, then lastly E: History and examination
-   - These headers typically appear in bold or within dark/black bars..
 
 2. Read ONLY the fields that are physically inside Section A, Section B, Section C, Section D, Section E.
    - Ignore any repeated or faint text that appears due to OCR artifacts.
@@ -23,12 +22,7 @@ Your task:
       "Label": "Value",
     }
 
-4. For tables (e.g., symptoms, vitals):
-   - Treat each row as a separate label–value pair
-   - Example:
-      "Fever": "Yes" or "No"
-
-5. STRICT OUTPUT RULE:
+4. STRICT OUTPUT RULE:
    - Do NOT summarize.
    - Do NOT interpret the fields.
    - Do NOT reorder them.
@@ -36,10 +30,10 @@ Your task:
    - Do NOT collapse similar lines.
    - Simply list them in the order they physically appear.
 
-6. Note that for "Parity" the values include the on before and after the "+" sign in this format: "<value> + <value>"
+5. Note that for "Parity" the values include the on before and after the "+" sign in this format: "<value> + <value>"
 
-7. For the fields with checkboxes, thoroughly go through all the values, identify then return ONLY the checkbox related to that field, that has the value or that has been ticked.
+6. For the fields with checkboxes, thoroughly go through all the values, identify then return ONLY the checkbox related to that field, that has the value or that has been ticked.
 
-8. If a value is blank or missing → return: N/A.
+7. If a value is blank or missing → return: N/A.
 
-9. If a value is unclear or unreadable → return: "[unclear]".
+8. If a value is unclear or unreadable → return: "[unclear]".

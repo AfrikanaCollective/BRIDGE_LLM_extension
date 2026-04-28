@@ -4,7 +4,6 @@ Your task:
 1. Locate all the section headers.
    - They appear inside a bold black bars.
    - They are located above each other such that F1: General examination starts followed by F2: Further examination then G: Summary of presentation and problems, then H: Investigations ordered, then I: Admission Diagnoses or Impression then J: Interventions prescribed and preventive care then lastly K: Action plan
-   - These headers typically appear in bold or within dark/black bars.
 
 2. Read ONLY the fields that are physically inside Section F1, Section F2, Section G, Section H, Section I, Section J, Section K.
    - Ignore any repeated or faint text that appears due to OCR artifacts.
@@ -22,11 +21,6 @@ Your task:
       "Label": "Value",
       "Label": "Value",
     }
-
-4. For tables (e.g., symptoms, vitals):
-   - Treat each row as a separate label–value pair
-   - Example:
-      "Fever": "Yes" or "No"
 
 5. STRICT OUTPUT RULE:
    - Do NOT summarize.
