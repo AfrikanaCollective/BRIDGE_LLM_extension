@@ -15,12 +15,12 @@ Your task:
    - Do not include explanations.
    - Do not use markdown.
    - If a field is missing, use "N/A".
+   - Do NOT create sections like "F1:", "G:", "H:", etc.
+   - Do NOT nest fields under headers
 
-    Expected format:
-    {
-      "Label": "Value",
-      "Label": "Value",
-    }
+    Example OUTPUT FORMAT:
+    {"Skin": "Normal", "Jaundice": "N/A", "Appearance": "Well", "Cry": "Normal"}
+
 
 5. STRICT OUTPUT RULE:
    - Do NOT summarize.
@@ -28,6 +28,8 @@ Your task:
    - Do NOT reorder them.
    - Do NOT add or remove labels.
    - Do NOT collapse similar lines.
+   - Do NOT create sections like "F1:", "G:", "H:", etc.
+   - Do NOT nest fields under headers
    - Simply list them in the order they physically appear.
 
 6. For the fields with checkboxes, thoroughly go through all the values, identify then return ONLY the checkbox related to that field, that has the value or that has been ticked.

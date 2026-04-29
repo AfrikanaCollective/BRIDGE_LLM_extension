@@ -51,7 +51,7 @@ Qwen API Service is a specialized medical document processing system that levera
 
 ✅ **Multi-Format Support**
 - ITF (Internal Transfer Form)
-- NAR (Neonatal Admission Record) - In Development
+- NAR (Neonatal Admission Record) 
 - DSC (Discharge Summary) - In Development
 
 ✅ **Advanced Form Processing**
@@ -127,7 +127,7 @@ Qwen API Service is a specialized medical document processing system that levera
         │                                  │
    ┌────▼──────┐  ┌──────────┐  ┌────────▼────┐
    │ ITF Agent │  │NAR Agent │  │ DSC Agent   │
-   │ (Active)  │  │(Planned) │  │ (Planned)   │
+   │ (Active)  │  │(Active)  │  │ (Planned)   │
    └────┬──────┘  └──────────┘  └─────────────┘
         │
     ┌───▼──────────────────────────────────────┐
@@ -748,7 +748,7 @@ use_file_prompt: true
 ### ITF (Infant Treatment Form) ✅ Active
 
 **Status**: Fully implemented
-**Supported Pages**: Page 1 (multi-page in development)
+**Supported Pages**: 1 page
 **Sections**:
 - Mother Details
 - Labour & Birth
@@ -764,10 +764,10 @@ curl -k -X POST https://localhost:8443/generate-with-image \
 
 **Output Fields**: 60+ fields with type conversion, validation, and risk flags
 
-### NAR (Narrative Report) 📝 In Development
+### NAR (Narrative Report) 📝 ✅ Active
 
-**Status**: Schema defined, agent in development
-**Planned Pages**: 2 pages
+**Status**: Fully implemented
+**Supported Pages**: 2 pages (multi-page in development)
 **Structure**: Similar to ITF with narrative sections
 
 ### DSC (Discharge Summary) 📝 In Development

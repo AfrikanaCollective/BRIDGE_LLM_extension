@@ -216,7 +216,11 @@ async def generate_with_image(
             "options": {
                 "temperature": 0,
                 "top_p": 1,
-                "top_k": 0
+                "top_k": 1,
+                "repeat_penalty": 1.0,  # No repeat penalty variance
+                "repeat_last_n": 64,  # Consistency in repetition handling
+                "num_predict": -1,  # Generate until stop token
+                "seed": 42,
             }
         }
 

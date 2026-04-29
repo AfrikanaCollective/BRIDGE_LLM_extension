@@ -9,7 +9,8 @@ from typing import Dict, List, Any, Optional
 from datetime import datetime
 
 from agents.nar_tools import NARTools
-from agents.config import get_form_schema, SectionType, ClinicalCategory, FieldType
+from agents.json_normalizer import JSONNormalizer
+from agents.config import get_form_schema, ClinicalCategory, FieldType
 
 logger = logging.getLogger(__name__)
 
@@ -54,6 +55,12 @@ class NARAgent:
 
             # Extract JSON data from markdown
             form_data = self._extract_json_from_markdown(content)
+
+            if form_data:
+                form_data = JSONNormalizer.normalize_structure(form_data)
+                form_data = JSONNormalizer.clean_field_names(form_data)
+                logger.info(f"✅ Normalized JSON structure to flat format")
+
             if not form_data:
                 logger.warning(f"⚠️  Could not extract JSON from markdown, trying plain text parsing")
                 form_data = self._parse_text_form_data(content)
