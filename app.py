@@ -25,13 +25,11 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 try:
-    from clients.image_generation import generate_with_image_async, batch_generate_with_images
-
+    from clients.image_generation import generate_with_image_async
     logger.info("✅ Image generation clients loaded successfully")
 except ImportError:
     logger.warning("⚠️ Image generation clients not available (optional)")
     generate_with_image_async = None
-    batch_generate_with_images = None
 
 # App state for managing async resources
 app_state = {
@@ -215,11 +213,9 @@ async def generate_with_image(
             "stream": False,
             "options": {
                 "temperature": 0,
-                "top_p": 1,
                 "top_k": 1,
+                "top_p": 1.0,
                 "repeat_penalty": 1.0,  # No repeat penalty variance
-                "repeat_last_n": 64,  # Consistency in repetition handling
-                "num_predict": -1,  # Generate until stop token
                 "seed": 42,
             }
         }
@@ -232,7 +228,11 @@ async def generate_with_image(
             async with app_state["client_session"].post(
                     f"{config.OLLAMA_BASE_URL}/api/generate",
                     json=payload,
-                    timeout=aiohttp.ClientTimeout(total=config.REQUEST_TIMEOUT)
+                    timeout=aiohttp.ClientTimeout(
+                        # connect=60,
+                        total=config.REQUEST_TIMEOUT,
+                        # sock_read=600  # Key setting for slow endpoints
+                    )
             ) as response:
 
                 if response.status != 200:

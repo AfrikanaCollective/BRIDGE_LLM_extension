@@ -1,9 +1,10 @@
 """NAR Agent - processes NAR (Neonatal Admission Record) forms with multi-page support."""
 
-import asyncio
+import re
+import time
 import json
 import logging
-import re
+
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 from datetime import datetime
@@ -44,18 +45,23 @@ class NARAgent:
         Returns:
             Dictionary with structured NAR data, risk assessment, and validation
         """
+
         try:
             file_path_obj = Path(file_path)
             logger.info(f"📖 Processing: {file_path_obj.name} (Page {self.page_number})")
 
             # Read file
+            logger.info(f"STEP 1: Reading file...")
             content = self._read_file(file_path_obj)
+
             if not content:
                 return self._error_result(file_path, "File is empty")
 
             # Extract JSON data from markdown
+            logger.info(f"STEP 2: Extracting JSON...")
             form_data = self._extract_json_from_markdown(content)
 
+            logger.info(f"STEP 3: Normalizing JSON structure...")
             if form_data:
                 form_data = JSONNormalizer.normalize_structure(form_data)
                 form_data = JSONNormalizer.clean_field_names(form_data)
@@ -71,30 +77,37 @@ class NARAgent:
             logger.info(f"✅ Extracted {len(form_data)} fields from form")
 
             # Step 1: Normalize field names using schema
+            logger.info(f"STEP 4: Normalizing field names...")
             normalized_data = self._normalize_field_names(form_data)
             logger.info(f"✅ Normalized field names (only schema-defined fields kept)")
 
             # Step 2: Convert types according to schema
+            logger.info(f"STEP 5: Convert field types...")
             typed_data = self._convert_field_types(normalized_data)
             logger.info(f"✅ Converted field types according to schema")
 
             # Step 3: Categorize into sections using schema
+            logger.info(f"STEP 6: Categorize into sections...")
             sections = self._categorize_into_sections(typed_data)
             logger.info(f"✅ Categorized into {len(sections)} sections")
 
             # Step 4: Validate required fields against schema
+            logger.info(f"STEP 7: Validate against NAR Page...")
             validation = self._validate_against_schema(typed_data)
             logger.info(f"✅ Validated against NAR Page {self.page_number} schema")
 
             # Step 5: Extract clinical concepts
+            logger.info(f"STEP 8: Extract clinical concepts...")
             clinical_concepts = self._extract_clinical_concepts(typed_data)
             logger.info(f"✅ Extracted {len(clinical_concepts)} clinical concept categories")
 
             # Step 6: Identify risk flags
+            logger.info(f"STEP 9: Identify risk flags...")
             risk_flags = self._identify_risk_flags(typed_data, clinical_concepts)
             logger.info(f"✅ Identified {len(self._flatten_risk_flags(risk_flags))} risk flags")
 
             # Step 7: Generate summary
+            logger.info(f"STEP 10: Generate Summary...")
             summary = self._generate_summary(typed_data, sections, risk_flags, validation)
             logger.info(f"✅ Generated summary")
 
@@ -321,7 +334,7 @@ class NARAgent:
                 val_str = str(value).strip()
 
                 # Skip empty or placeholder values
-                if val_str in ['', 'N/A', 'n/a', 'NA', 'na', 'unknown', 'unkn', 'Unknown', 'UNKNOWN']:
+                if val_str in ['', 'N/A', 'n/a', 'NA', 'na']:
                     logger.debug(f"⏭️  Skipping N/A value: {raw_key} = {val_str}")
                     continue
 
@@ -420,10 +433,12 @@ class NARAgent:
                 raise ValueError(f"Cannot convert '{val_str}' to float")
 
         elif field_type == FieldType.DATE:
-            return self._parse_date(val_str, field_def.get('format', 'DD-MM-YYYY'))
+            val_str_stripped = val_str.replace(" ", "")
+            return self._parse_date(val_str_stripped, field_def.get('format', 'DD-MM-YYYY'))
 
         elif field_type == FieldType.TIME:
-            return self._parse_time(val_str, field_def.get('format', 'HH:MM'))
+            val_str_stripped = val_str.replace(" ", "")
+            return self._parse_time(val_str_stripped, field_def.get('format', 'HH:MM'))
 
         elif field_type == FieldType.ENUM:
             # Enum values should be from the values list

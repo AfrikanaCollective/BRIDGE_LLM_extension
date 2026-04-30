@@ -18,8 +18,11 @@ Your task:
    - Do NOT create sections like "A:", "B:", "C:", etc.
    - Do NOT nest fields under headers
 
-    Example OUTPUT FORMAT:
-    {"Field Name 1": "Value 1", "Field Name 2": "Value 2", "Date of Admission": "28-12-2024", "Time baby seen (24 hr clock)": "11:00"}
+    Expected format:
+    {
+      "Label": "Value",
+      "Label": "Value",
+    }
 
 4. STRICT OUTPUT RULE:
    - Do NOT summarize.
@@ -28,8 +31,6 @@ Your task:
    - Do NOT add or remove labels.
    - Do NOT collapse similar lines.
    - Simply list them in the order they physically appear.
-   - Do NOT create sections like "A:", "B:", "C:", etc.
-   - Do NOT nest fields under headers
 
 5. Note that for "Parity" the values include the on before and after the "+" sign in this format: "<value> + <value>"
 

@@ -4,14 +4,13 @@ Wraps the /generate-with-image endpoint
 Integrates form agents for structured data extraction (ITF, NAR, DSC, etc.)
 """
 import re
+import ssl
 import json
 import aiohttp
-import asyncio
 import logging
-import ssl
 from pathlib import Path
 from config import Config
-from typing import Optional, Dict, Any, Tuple, Type
+from typing import Optional, Dict, Any, Tuple
 from agents.itf_agent import ITFAgent
 from agents.nar_agent import NARAgent
 
@@ -21,7 +20,6 @@ logger = logging.getLogger(__name__)
 FORM_TYPE_AGENTS = {
     "ITF": ITFAgent,
     "NAR": NARAgent,
-    # "DSC": DSCAgent,  # Add when available
 }
 
 
@@ -235,7 +233,8 @@ def get_agent_for_form_type(form_type: str):
 async def _process_with_agent(
         response_text: str,
         image_path: Path,
-        form_type: str = "ITF"
+        form_type: str = "ITF",
+        page_number: Optional[int] = None,
 ) -> Tuple[Dict[str, Any], Dict[str, Any], str]:
     """
     Process LLM response through form agent for structured extraction.
@@ -244,6 +243,7 @@ async def _process_with_agent(
         response_text: Raw LLM response text
         image_path: Path to the original image file
         form_type: Form type identifier (e.g., 'ITF', 'NAR', 'DSC')
+        page_number: Page number for form agents that support it (NAR, etc.)
 
     Returns:
         Tuple of (raw_json, cleaned_json, case_summary)
@@ -288,7 +288,12 @@ async def _process_with_agent(
         logger.debug(f"📝 Created temporary markdown file: {temp_md_file}")
 
         # Step 4: Process with agent
-        agent = agent_class()
+        if page_number is None:
+            page_number = extract_page_number(image_path)
+            if page_number is None:
+                page_number = 1  # Default to page 1
+            logger.debug(f"📄 {form_type_upper} page number: {page_number}")
+        agent = agent_class(page_number)
 
         # Call appropriate method based on agent type
         if hasattr(agent, 'process_itf_file'):
@@ -484,7 +489,11 @@ async def generate_with_image_async(
 
         # Create connector with SSL context
         connector = aiohttp.TCPConnector(ssl=ssl_context)
-        timeout_obj = aiohttp.ClientTimeout(total=timeout)
+        timeout_obj = aiohttp.ClientTimeout(
+            # connect=60,
+            total=timeout,
+            # sock_read=600      # Key setting for slow endpoints
+        )
 
         # Make request
         async with aiohttp.ClientSession(connector=connector) as session:

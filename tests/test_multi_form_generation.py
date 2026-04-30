@@ -1,6 +1,5 @@
 """Test script for multi-form type image generation integration."""
 import sys
-import json
 import asyncio
 import logging
 from pathlib import Path
@@ -94,13 +93,6 @@ async def test_single_itf_form(image_path: Path):
         logger.info(f"   Form Type: {result.get('form_type')}")
         logger.info(f"   Agent Processed: {result.get('agent_processed')}")
         logger.info(f"   Response Length: {len(result.get('response', ''))} chars")
-        logger.info(f"   Response keys: {list(result.keys())}")
-
-        if result.get('metrics'):
-            logger.info(f"\n\n Metrics: {result['metrics']}")
-
-        if result.get('cleaned_json'):
-            logger.info(f"\n\n Form data: {result['cleaned_json']}")
 
         if result.get('case_summary'):
             logger.info(f"\n\n Summary: {result['case_summary']}\n\n")
@@ -312,7 +304,7 @@ def print_test_summary(results: dict):
         'test_3_nar': "⚠️  SKIPPED" if results.get('test_3_nar') is None else (
             "✅ PASS" if results.get('test_2_nar') else "❌ FAIL"),
         'test_4_validation': "✅ PASS",
-        #'test_5_batch': "✅ PASS" if results.get('test_5_batch') else "❌ FAIL",
+        # 'test_5_batch': "✅ PASS" if results.get('test_5_batch') else "❌ FAIL",
     }
 
     for test_name, status in summary.items():

@@ -3,7 +3,7 @@ ITF Page 1 Schema - Infant Treatment Form
 Contains: Mother's Details, Labour & Birth, Infant Details
 """
 
-from agents.config import FieldType, SectionType, ClinicalCategory
+from agents.config import FieldType, SectionType, ClinicalCategory,ENUM_MAPPINGS
 
 # ==================== ITF PAGE 1 SCHEMA ====================
 
@@ -87,7 +87,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.MODERATE,
         "is_clinical_concept": False,
         "description": "Mother attended antenatal care",
-        "enum_mapping": {"Y": True, "N": False}
+        "enum_mapping": ENUM_MAPPINGS
     },
 
     "ANC no. of visits": {
@@ -109,7 +109,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.MODERATE,
         "is_clinical_concept": False,
         "description": "Antenatal ultrasound performed",
-        "enum_mapping": {"Y": True, "N": False}
+        "enum_mapping": ENUM_MAPPINGS
     },
 
     "U/S findings": {
@@ -168,8 +168,7 @@ ITF_PAGE_1_SCHEMA = {
         "section": SectionType.MOTHER_DETAILS,
         "clinical_category": ClinicalCategory.OBSERVATION,
         "is_clinical_concept": False,
-        "values": ["Pos", "Neg", "Unkn"],
-        "enum_mapping": {"Pos": "Positive", "Neg": "Negative", "Unkn": "Unknown"},
+        "enum_mapping": ENUM_MAPPINGS,
         "description": "Rhesus factor status"
     },
 
@@ -181,7 +180,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
         "description": "Maternal fever present",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True  # Flag if True
     },
 
@@ -193,7 +192,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
         "description": "Mother on TB treatment",
-        "enum_mapping": {"Y": True, "N": False, "Unkn": "Unknown"},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -204,8 +203,7 @@ ITF_PAGE_1_SCHEMA = {
         "section": SectionType.MOTHER_DETAILS,
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
-        "values": ["Pos", "Neg", "Unkn"],
-        "enum_mapping": {"Pos": "Positive", "Neg": "Negative", "Unkn": "Unknown"},
+        "enum_mapping": ENUM_MAPPINGS,
         "description": "Syphilis screening (VDRL test)",
         "risk_flag_value": "Pos"
     },
@@ -218,7 +216,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
         "description": "Mother has diabetes",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping":ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -229,8 +227,7 @@ ITF_PAGE_1_SCHEMA = {
         "section": SectionType.MOTHER_DETAILS,
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": False,
-        "values": ["Pos", "Neg", "Unkn"],
-        "enum_mapping": {"Pos": "Positive", "Neg": "Negative", "Unkn": "Unknown"},
+        "enum_mapping": ENUM_MAPPINGS,
         "description": "HIV status (Prevention of Mother-to-Child Transmission)",
         "risk_flag_value": "Pos"
     },
@@ -243,7 +240,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
         "description": "Mother on antiretroviral therapy",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -255,7 +252,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": False,
         "description": "Antepartum hemorrhage",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -267,7 +264,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.MODERATE,
         "is_clinical_concept": False,
         "description": "Mother on antibiotics",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -279,7 +276,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
         "description": "Multiple pregnancy",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -302,7 +299,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": True,
         "description": "Hypertension in pregnancy",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -314,7 +311,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": True,
         "description": "Pre-eclampsia",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -326,7 +323,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": True,
         "description": "Eclampsia",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -395,7 +392,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": False,
         "description": "Fetal distress during labour",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -407,7 +404,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
         "description": "Meconium-stained amniotic fluid",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -431,7 +428,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.MODERATE,
         "is_clinical_concept": False,
         "description": "Corticosteroids given",
-        "enum_mapping": {"Y": True, "N": False}
+        "enum_mapping": ENUM_MAPPINGS
     },
 
     "No of doses": {
@@ -492,7 +489,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.OBSERVATION,
         "is_clinical_concept": False,
         "description": "Placenta completely delivered",
-        "enum_mapping": {"Y": True, "N": False}
+        "enum_mapping": ENUM_MAPPINGS
     },
 
     "Abnormal placenta?": {
@@ -503,7 +500,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
         "description": "Placental abnormalities",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -541,7 +538,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": False,
         "description": "Chest compressions performed",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -564,7 +561,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.MODERATE,
         "is_clinical_concept": False,
         "description": "Vitamin K prophylaxis given",
-        "enum_mapping": {"Y": True, "N": False}
+        "enum_mapping": ENUM_MAPPINGS
     },
 
     "TEO": {
@@ -575,7 +572,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.MODERATE,
         "is_clinical_concept": False,
         "description": "Thermal care",
-        "enum_mapping": {"Y": True, "N": False}
+        "enum_mapping": ENUM_MAPPINGS
     },
 
     "OPV": {
@@ -586,7 +583,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.MODERATE,
         "is_clinical_concept": False,
         "description": "Oral Polio Vaccine",
-        "enum_mapping": {"Y": True, "N": False}
+        "enum_mapping": ENUM_MAPPINGS
     },
 
     "BCG": {
@@ -597,7 +594,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.MODERATE,
         "is_clinical_concept": False,
         "description": "BCG vaccine",
-        "enum_mapping": {"Y": True, "N": False}
+        "enum_mapping": ENUM_MAPPINGS
     },
 
     "Hep B": {
@@ -608,7 +605,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.MODERATE,
         "is_clinical_concept": False,
         "description": "Hepatitis B vaccine",
-        "enum_mapping": {"Y": True, "N": False}
+        "enum_mapping": ENUM_MAPPINGS
     },
 
     "CPAP": {
@@ -619,7 +616,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
         "description": "CPAP support",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -631,7 +628,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
         "description": "Supplemental oxygen",
-        "enum_mapping": {"Y": True, "N": False},
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -643,7 +640,7 @@ ITF_PAGE_1_SCHEMA = {
         "clinical_category": ClinicalCategory.MODERATE,
         "is_clinical_concept": False,
         "description": "Chlorhexidine cord care",
-        "enum_mapping": {"Y": True, "N": False}
+        "enum_mapping": ENUM_MAPPINGS
     },
 
     "Maternal Status": {
@@ -686,7 +683,7 @@ ITF_PAGE_1_SCHEMA = {
         "section": SectionType.INFANT_DETAILS,
         "clinical_category": ClinicalCategory.OBSERVATION,
         "is_clinical_concept": False,
-        "values": ["M", "F", "Indeterminate"],
+        "enum_mapping": ENUM_MAPPINGS,
         "description": "Baby's sex"
     },
 

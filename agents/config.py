@@ -4,7 +4,7 @@ Page-specific schemas are loaded from separate files.
 """
 
 from enum import Enum
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List
 
 
 # ==================== ENUMS ====================
@@ -32,9 +32,7 @@ class SectionType(Enum):
     MOTHER_DETAILS = "mother_details"
     LABOUR_BIRTH = "labour_birth"
     INFANT_DETAILS = "infant_details"
-    INFANT_VITALS = "infant_vitals"
     INFANT_HISTORY = "infant_history"
-    EXAMINATION = "infant_examination"
     GENERAL_EXAMINATION = "general_examination"
     FURTHER_EXAMINATION = "further_examination"
     SUMMARY = "summary"
@@ -42,7 +40,6 @@ class SectionType(Enum):
     DIAGNOSIS = "diagnosis"
     INTERVENTIONS = "interventions"
     ACTION_PLAN = "action_plan"
-    SIGN_OFF = "sign_off"
 
 
 class ClinicalCategory(Enum):
@@ -88,14 +85,15 @@ NAR_SECTION_VARIATIONS = {
         "A: Infant details",
         "Infant Details",
         "Infant details",
-        "A: Baby Details",
-        "A: Neonatal Details",
     ],
     "MOTHER_DETAILS": [
             "B: Mother's details",
+            "B: Mothers details",
             "Mother's details",
+            "Mothers details",
             "C: Mother's problems during pregnancy/labour & relevant maternal treatment",
             "Mother's problems during pregnancy/labour & relevant maternal treatment",
+            "Mothers problems during pregnancy labour & relevant maternal treatment",
         ],
     "INFANT_HISTORY": [
             "D: Infant's presenting problem & any treatment given",
@@ -103,6 +101,34 @@ NAR_SECTION_VARIATIONS = {
             "E: History and examination",
             "History and examination",
         ],
+    "GENERAL_EXAMINATION": [
+        "F1: General examination",
+        "General examination"
+    ],
+    "FURTHER_EXAMINATION": [
+        "F2: Further examination",
+        "Further examination"
+    ],
+    "SUMMARY": [
+        "G: Summary of presentation and problems (List most important problems first)",
+        "Summary of presentation and problems (List most important problems first)"
+    ],
+    "INVESTIGATIONS": [
+        "H: Investigations ordered",
+    ],
+    "DIAGNOSIS": [
+        "I: Admission Diagnoses or Impression",
+        "Admission Diagnoses or Impression",
+    ],
+    "INTERVENTIONS": [
+        "J: Interventions prescribed, and preventive care given"
+        "Interventions prescribed, and preventive care given"
+    ],
+    "ACTION_PLAN": [
+        "K: Action plan",
+        "Action plan"
+    ]
+
 
 }
 
@@ -142,24 +168,26 @@ CLINICAL_CONCEPT_FIELDS = {
             SectionType.FURTHER_EXAMINATION: [
                 "Further examination notes",
                 "Birth defects description",
+                "Neuro",
+                "Further examination of Resp / CVS / GIT / GU / Skin / Birth Trauma?"
             ],
             SectionType.SUMMARY: [
-                "Summary of problems",
+                "Summary of presentation and problems",
+            ],
+            SectionType.DIAGNOSIS: [
+                "Others diagnoses (List below)",
             ],
             SectionType.INVESTIGATIONS: [
                 "Other investigations",
+            ],
+            SectionType.ACTION_PLAN: [
+                "Action plan",
             ]
         }
     },
 }
 
 # ==================== UTILITY MAPPINGS ====================
-
-BOOLEAN_MAPPINGS = {
-    "Y": True, "Yes": True, "yes": True, "YES": True,
-    "N": False, "No": False, "no": False, "NO": False,
-    "N/A": None,
-}
 
 ENUM_MAPPINGS = {
     # Pos/Neg/Unkn mappings
@@ -171,9 +199,15 @@ ENUM_MAPPINGS = {
     "M": "Male",
     "Indeterminate": "Indeterminate",
 
+    "None": "None",
+    "+": "Mild",
+    "+++": "Severe",
+
     # Boolean shortcuts
     "Y": True,
     "N": False,
+    "Yes": True,
+    "No": False,
     "N/A": None,
 }
 

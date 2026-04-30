@@ -328,7 +328,6 @@ NAR_PAGE_1_SCHEMA = {
         "section": SectionType.MOTHER_DETAILS,
         "clinical_category": ClinicalCategory.OBSERVATION,
         "is_clinical_concept": False,
-        "values": ["Pos", "Neg", "Unkn"],
         "enum_mapping": ENUM_MAPPINGS,
         "description": "Rhesus factor status"
     },
@@ -340,7 +339,6 @@ NAR_PAGE_1_SCHEMA = {
         "section": SectionType.MOTHER_DETAILS,
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
-        "values": ["Pos", "Neg", "Unkn"],
         "enum_mapping": ENUM_MAPPINGS,
         "description": "Syphilis screening (VDRL test)",
         "risk_flag_value": "Pos"
@@ -353,7 +351,6 @@ NAR_PAGE_1_SCHEMA = {
         "section": SectionType.MOTHER_DETAILS,
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": False,
-        "values": ["Pos", "Neg", "Unkn"],
         "enum_mapping": ENUM_MAPPINGS,
         "description": "HIV status (Prevention of Mother-to-Child Transmission)",
         "risk_flag_value": "Pos"
@@ -429,7 +426,7 @@ NAR_PAGE_1_SCHEMA = {
         "field_name": "Temp",
         "type": FieldType.FLOAT,
         "required": True,
-        "section": SectionType.INFANT_VITALS,
+        "section": SectionType.INFANT_HISTORY,
         "clinical_category": ClinicalCategory.OBSERVATION,
         "is_clinical_concept": False,
         "description": "Temperature in °C",
@@ -438,42 +435,39 @@ NAR_PAGE_1_SCHEMA = {
 
     "Resp Rate": {
         "field_name": "Resp Rate",
-        "type": FieldType.INTEGER,
+        "type": FieldType.STRING,
         "required": True,
-        "section": SectionType.INFANT_VITALS,
+        "section": SectionType.INFANT_HISTORY,
         "clinical_category": ClinicalCategory.OBSERVATION,
         "is_clinical_concept": False,
-        "description": "Respiratory rate",
-        "validation": {"min": 60, "max": 100}
+        "description": "Respiratory rate"
     },
 
-    "Pulse Rate": {
-        "field_name": "Pulse Rate",
-        "type": FieldType.INTEGER,
+    "Pulse": {
+        "field_name": "Pulse",
+        "type": FieldType.STRING,
         "required": True,
-        "section": SectionType.INFANT_VITALS,
+        "section": SectionType.INFANT_HISTORY,
         "clinical_category": ClinicalCategory.OBSERVATION,
         "is_clinical_concept": False,
         "description": "Heart rate (beats per minute)",
-        "validation": {"min": 40, "max": 200}
     },
 
-    "O₂ Sat": {
-        "field_name": "O₂ Sat",
-        "type": FieldType.INTEGER,
+    "O2 Sat (%)": {
+        "field_name": "O2 Sat (%)",
+        "type": FieldType.STRING,
         "required": True,
-        "section": SectionType.INFANT_VITALS,
+        "section": SectionType.INFANT_HISTORY,
         "clinical_category": ClinicalCategory.OBSERVATION,
         "is_clinical_concept": False,
-        "description": "Oxygen Saturation",
-        "validation": {"min": 0, "max": 100}
+        "description": "Oxygen Saturation"
     },
 
     "Birth Weight (grams)": {
         "field_name": "Birth Weight (grams)",
         "type": FieldType.INTEGER,
         "required": True,
-        "section": SectionType.INFANT_VITALS,
+        "section": SectionType.INFANT_HISTORY,
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
         "description": "Birth weight in grams",
@@ -489,7 +483,7 @@ NAR_PAGE_1_SCHEMA = {
         "field_name": "Weight now (grams)",
         "type": FieldType.INTEGER,
         "required": True,
-        "section": SectionType.INFANT_VITALS,
+        "section": SectionType.INFANT_HISTORY,
         "clinical_category": ClinicalCategory.OBSERVATION,
         "is_clinical_concept": False,
         "description": "Current weight in grams",
@@ -500,11 +494,11 @@ NAR_PAGE_1_SCHEMA = {
         "field_name": "Fever",
         "type": FieldType.BOOLEAN,
         "required": True,
-        "section": SectionType.MOTHER_DETAILS,
+        "section": SectionType.INFANT_HISTORY,
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
-        "description": "Maternal fever present",
-        "enum_mapping": {"Y": True, "N": False},
+        "description": "Baby has fever present",
+        "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
 
@@ -515,9 +509,9 @@ NAR_PAGE_1_SCHEMA = {
         "section": SectionType.INFANT_HISTORY,
         "clinical_category": ClinicalCategory.HIGH,
         "is_clinical_concept": False,
-        "description": "Baby passed meconium/stool",
+        "description": "Baby passed meconium stool",
         "enum_mapping": ENUM_MAPPINGS,
-        "risk_flag": True
+        "risk_flag": False
     },
 
     "Difficulty breathing": {
@@ -527,7 +521,7 @@ NAR_PAGE_1_SCHEMA = {
         "section": SectionType.INFANT_HISTORY,
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": False,
-        "description": "Baby passed meconium/stool",
+        "description": "Baby has difficulty breathing",
         "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },
@@ -541,7 +535,6 @@ NAR_PAGE_1_SCHEMA = {
         "is_clinical_concept": False,
         "description": "Baby passed urine",
         "enum_mapping": ENUM_MAPPINGS,
-        "risk_flag": True
     },
 
     "Difficulty feeding": {
@@ -556,8 +549,8 @@ NAR_PAGE_1_SCHEMA = {
         "risk_flag": True
     },
 
-    "Convulsions": {
-        "field_name": "Convulsions",
+    "Convulsions / Twitching": {
+        "field_name": "Convulsions / Twitching",
         "type": FieldType.BOOLEAN,
         "required": True,
         "section": SectionType.INFANT_HISTORY,
@@ -587,7 +580,7 @@ NAR_PAGE_1_SCHEMA = {
         "section": SectionType.INFANT_HISTORY,
         "clinical_category": ClinicalCategory.CRITICAL,
         "is_clinical_concept": False,
-        "description": "Baby has reduced movement",
+        "description": "Baby is floppy",
         "enum_mapping": ENUM_MAPPINGS,
         "risk_flag": True
     },

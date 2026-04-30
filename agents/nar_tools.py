@@ -52,9 +52,7 @@ class NARTools(MedicalFormTools):
                     section_type_map = {
                         "INFANT_DETAILS": SectionType.INFANT_DETAILS,
                         "MOTHER_DETAILS": SectionType.MOTHER_DETAILS,
-                        "INFANT_VITALS": SectionType.INFANT_VITALS,
                         "INFANT_HISTORY": SectionType.INFANT_HISTORY,
-                        "EXAMINATION": SectionType.EXAMINATION,
                         "GENERAL_EXAMINATION": SectionType.GENERAL_EXAMINATION,
                         "FURTHER_EXAMINATION": SectionType.FURTHER_EXAMINATION,
                         "SUMMARY": SectionType.SUMMARY,
@@ -62,7 +60,6 @@ class NARTools(MedicalFormTools):
                         "DIAGNOSIS": SectionType.DIAGNOSIS,
                         "INTERVENTIONS": SectionType.INTERVENTIONS,
                         "ACTION_PLAN": SectionType.ACTION_PLAN,
-                        "SIGN_OFF": SectionType.SIGN_OFF,
                     }
                     return section_type_map.get(canonical)
 

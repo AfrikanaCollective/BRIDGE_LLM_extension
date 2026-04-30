@@ -2,11 +2,9 @@
 
 import logging
 from typing import Dict, Any, List, Tuple, Optional
-from datetime import datetime
-from pathlib import Path
 
 from .config import (
-    get_form_schema, BOOLEAN_MAPPINGS, ClinicalCategory,
+    get_form_schema, ClinicalCategory,
     SectionType, ITF_SECTION_VARIATIONS, CLINICAL_CONCEPT_FIELDS,
     FieldType
 )
